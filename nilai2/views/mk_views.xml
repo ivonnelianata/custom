@@ -1,0 +1,130 @@
+<odoo>
+    <record id="mk_view_form" model="ir.ui.view">  <!--perintah view utk buat filed di ir.ui.view-->
+            <field name="name">mk.view.form</field>
+            <field name="model">nilai.mk</field>
+            <field name="arch" type="xml">
+                <!--mulai buat form-->
+                <form string="Idea form">
+                   <!--buat header diatas-->
+                    <header>
+                        <!--paramter1 function yg dipanggil jd di idea.py hrs ada def action_confirmed, string yg keluar di tmplna odoonya, states draft akan visible jika statusn statenya draft, type object, buttom primary bisa berwarna biru-->
+                       <button name="action_done" string="Done" states="draft" type="object" class="btn-primary"/>
+                        <button name="action_settodraft" string="Set to draft" states="canceled" type="object" class="btn-primary"/>
+                        <button name="action_canceled" string="Cancel" states="done" type="object" class="btn-primary" groups="sales_team.group_sale_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                    </header>
+                    <sheet> <!--#ada shadow kotak-->
+                        <group> <!--#gorup besar-->
+                            <group> <!--#dibagi 2 group kanan dan kiiri-->
+                                <field name="name"/>
+                                <field name="code"/>
+                            </group>
+                            <group>
+                                <field name="credit"/>
+                                <field name="active"/>
+                                <!--<field name="state"/> harus dihapuss -->
+                            </group>
+                        </group>
+                        <!--notebook-->
+                    </sheet>
+                </form>
+            </field>
+    </record>
+
+    <!--list-->
+    <record id="mk_view_list" model="ir.ui.view">
+        <field name="name">mk.view.list</field>
+        <field name="model">nilai.mk</field>
+        <field name="arch" type="xml">
+              <!--mulai buat list-->
+            <tree string="Idea list"> <!--#buat nama form-->
+                <field name="name"/>
+                <field name="code"/>
+                <field name="credit"/>
+                <field name="state"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!--kanban-->
+    <record id="mk_view_kanban" model="ir.ui.view">
+        <field name="name">mk.view.kanban</field>
+        <field name="model">nilai.mk</field>
+        <field name="arch" type="xml">
+            <kanban> <!--pengganti sheet tadi-->
+                <field name="name"/>
+                <field name="code"/>
+                <field name="credit"/>
+                <field name="state"/>
+                <field name="active"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban"> <!--css tinggal copas-->
+                            <div class="oe_kanban_details"> <!--ini field yg ditampil dikanban-->
+                                <strong class="o_kanban_record_title oe_partner_heading">
+                                    <field name="display_name"/>
+                                </strong>
+                                <ul> <!--ini yg ditampil dikanban-->
+                                    <li t-if="record.credit.raw_value">
+                                        <field name="credit"/>
+                                    </li>
+                                    <li t-if="record.active.raw_value">
+                                        <field name="active"/> <!--score gada brs langsing diganti baris berikuntnya jd gada spasi kosong-->
+                                    </li>
+                                    <li t-if="record.state.raw_value">
+                                        <field name="state"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!--search-->
+    <record id="mk_view_search" model="ir.ui.view">
+        <field name="name">mk.view.search</field>
+        <field name="model">nilai.mk</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="credit"/>
+                <field name="state"/>
+                <field name="active"/>
+                <!--filter dibawah search, draft, confirmed, scroe>10 ini labelnya-->
+                <!--draft confirm harus sesuai di idea.py hrf kecil diperhatikan-->
+                <filter string="Draft" name="draft_filter" domain="[('state', '=', 'draft')]"/>
+                <filter string="Done" name="done_filter" domain="[('state', '=', 'done')]"/>
+                <separator/>
+                <filter string="credit>2" name="Credit2_filter" domain="[('credit', '>', 2)]"/>
+
+                <!--group by digruop bds state dan date-->
+                <group string="Group By..." expand="0" name="groupby">
+                    <filter string="State" name="by_state" context="{'group_by': 'state'}"/>
+                    <filter string="Active" name="by_active" context="{'group_by': 'active'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--utk menjembatani view dan model hrs ada action. jd view ini jalankan action apa-->
+    <!--action-->
+    <record id="mk_action" model="ir.actions.act_window">
+        <field name="name">mk</field>
+        <field name="res_model">nilai.mk</field>
+        <field name="view_id" ref="mk_view_list"/>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+
+     <!--urutan 10,20 bikin menu di tengah" --> <!--menu tanpa parent jd dikanan-->
+
+    <menuitem id="mk_menu" parent="nilai_menu" name="Data MK"
+               action="mk_action" sequence="20"/>
+</odoo>

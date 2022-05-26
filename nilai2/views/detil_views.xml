@@ -1,0 +1,34 @@
+<odoo>
+    <record id="detil_view_form" model="ir.ui.view">  <!--perintah view utk buat filed di ir.ui.view-->
+            <field name="name">detil.view.form</field>
+            <field name="model">nilai.detil</field>
+            <field name="arch" type="xml">
+                <!--mulai buat form-->
+                <form string="Detil form">
+                   <!--buat header diatas-->
+                    <header>
+                    </header>
+                    <sheet> <!--#ada shadow kotak-->
+                        <group> <!--#gorup besar-->
+                            <group> <!--#dibagi 2 group kanan dan kiiri-->
+                                <field name="grade2"/>
+                            </group>
+                        </group>
+                        <!--notebook-->
+                    </sheet>
+                </form>
+            </field>
+    </record>
+
+
+
+
+    <!--utk menjembatani view dan model hrs ada action. jd view ini jalankan action apa-->
+    <!--action-->
+    <record id="detil_action" model="ir.actions.act_window">
+        <field name="name">detil</field>
+        <field name="res_model">nilai.detil</field>
+        <field name="view_mode">form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,58 @@
+<odoo>
+    <record id="kategori_view_form" model="ir.ui.view">  <!--perintah view utk buat filed di ir.ui.view-->
+            <field name="name">kategori.view.form</field>
+            <field name="model">perpustakaan.kategori</field>
+            <field name="arch" type="xml">
+                <!--mulai buat form-->
+                <form string="Kategori form">
+                   <!--buat header diatas-->
+                    <header>
+                        <!--paramter1 function yg dipanggil jd di idea.py hrs ada def action_confirmed, string yg keluar di tmplna odoonya, states draft akan visible jika statusn statenya draft, type object, buttom primary bisa berwarna biru-->
+                        <button name="action_done" string="Done" states="draft" type="object" class="btn-primary"/>
+                        <button name="action_settodraft" string="Set to draft" states="canceled" type="object" class="btn-primary"/>
+                        <button name="action_canceled" string="Cancel" states="done" type="object" class="btn-primary" groups="sales_team.group_sale_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                    </header>
+                    <sheet> <!--#ada shadow kotak-->
+                        <group> <!--#gorup besar-->
+                            <group> <!--#dibagi 2 group kanan dan kiiri-->
+
+                                <field name="kode"/>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <!--notebook-->
+                    </sheet>
+                </form>
+            </field>
+    </record>
+
+    <!--list-->
+    <record id="kategori_view_list" model="ir.ui.view">
+        <field name="name">kategori.view.list</field>
+        <field name="model">perpustakaan.kategori</field>
+        <field name="arch" type="xml">
+              <!--mulai buat list-->
+            <tree string="Kategori list"> <!--#buat nama form-->
+                <field name="kode"/>
+                <field name="name"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--action-->
+    <record id="kategori_action" model="ir.actions.act_window">
+        <field name="name">kategori</field>
+        <field name="res_model">perpustakaan.kategori</field>
+        <field name="view_id" ref="kategori_view_list"/>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+
+     <!--urutan 10,20 bikin menu di tengah" --> <!--menu tanpa parent jd dikanan-->
+    <menuitem id="kategori_menu" parent="perpustakaan_menu" name="Kategori"
+               action="kategori_action" sequence="50"/>
+</odoo>

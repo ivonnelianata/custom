@@ -1,0 +1,15 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_mahasiswa_user","Access Mahasiswa for User Sales","model_score_mahasiswa","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_mahasiswa_admin","Access Mahasiswa for User admin","model_score_mahasiswa","sales_team.group_sale_manager",1,1,1,1
+"access_khs_user","Access KHS for User Sales","model_score_khs","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_khs_admin","Access KHS for User admin","model_score_khs","sales_team.group_sale_manager",1,1,1,1
+"access_mk_user","Access MK for User Sales","model_score_mk","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_mk_admin","Access MK for User admin","model_score_mk","sales_team.group_sale_manager",1,1,1,1
+"access_detail_user","Access Detail for User Sales","model_score_detail","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_detail_admin","Access Detail for User admin","model_score_detail","sales_team.group_sale_manager",1,1,1,1
+"access_kelas_user","Access Kelas for User Sales","model_score_kelas","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_kelas_admin","Access Kelas for User admin","model_score_kelas","sales_team.group_sale_manager",1,1,1,1
+"access_kelas_lines_user","Access Kelas Lines for User Sales","model_score_kelas_lines","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_kelas_lines_admin","Access Kelas Lines for User admin","model_score_kelas_lines","sales_team.group_sale_manager",1,1,1,1
+"access_wiz_nilai_kelas_user","Access Idea for User MK","model_wiz_score_kelas","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_wiz_nilai_kelas_lines_admin","Access Idea for Admin","model_wiz_score_kelas_lines","sales_team.group_sale_manager",1,1,1,1,

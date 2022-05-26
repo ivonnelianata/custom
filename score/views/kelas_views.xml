@@ -1,0 +1,89 @@
+<odoo>
+<record id="kelas_view_form" model="ir.ui.view">
+        <field name="name">kelas.view.form</field>
+        <field name="model">score.kelas</field>
+        <field name="arch" type="xml">
+            <form string="Kelas form">
+                <header>
+                    <button name="action_done" string="Done" states="draft" type="object" class="btn-primary"/>
+                    <button name="action_settodraft" string="Set to Draft" states="canceled" type="object" class="btn-primary"/>
+                    <button name="action_canceled" string="Cancel" states="done" type="object" class="btn-primary" groups="sales_team.group_sale_manager"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <!--smart button-->
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_wiz_nilai" type="object" string="Update Nilai" class="oe_stat_button" icon="fa-pencil-square-o">
+
+                        </button>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="tahun"/>
+                            <field name="semester"/>
+                            <field name="mk_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Nilai" name="nilai">
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="mhs_id"/>
+                                    <field name="grade" readonly="1"/> <!--supaya ga bisa di input krn ngisinya pake wizard-->
+                                </tree>
+
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="kelas_view_list" model="ir.ui.view">
+        <field name="name">kelas.view.list</field>
+        <field name="model">score.kelas</field>
+        <field name="arch" type="xml">
+            <tree string="Kelas list">
+                <field name="name"/>
+                <field name="semester"/>
+                <field name="tahun"/>
+                <field name="mk_id"/>
+                <field name="state" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+<!--    -->
+<!--    <record id="khs_view_search" model="ir.ui.view">-->
+<!--    <field name="name">khs.view.search</field>-->
+<!--    <field name="model">score.khs</field>-->
+<!--    <field name="arch" type="xml">-->
+<!--        <search>-->
+<!--            <field name="semester"/>-->
+<!--            <field name="tahun"/>-->
+<!--            <field name="ips"/>-->
+<!--            <filter string="Draft" name="draft_filter" domain="[('state', '=', 'draft')]"/>-->
+<!--            <filter string="Done" name="done_filter" domain="[('state', '=', 'done')]"/>-->
+<!--            <separator/>-->
+
+<!--            <group string="Group By..." expand="0" name="groupby">-->
+<!--                <filter string="State" name="by_state" context="{'group_by': 'state'}"/>-->
+<!--                <filter string="IPS" name="by_ips" context="{'group_by': 'ips'}"/>-->
+<!--                <filter string="Semester" name="by_semester" context="{'group_by': 'semester'}"/>-->
+<!--                <filter string="Tahun" name="by_tahun" context="{'group_by': 'tahun'}"/>-->
+<!--            </group>-->
+<!--        </search>-->
+<!--    </field>-->
+<!--</record>-->
+
+<record id="kelas_action" model="ir.actions.act_window">
+    <field name="name">Kelas</field>
+    <field name="res_model">score.kelas</field>
+    <field name="view_id" ref="kelas_view_list"/>
+    <field name="view_mode">tree,form</field>
+</record>
+<menuitem id="kelas_menu" parent="score.score_menu" name="Kelas"
+          action="kelas_action" sequence="50"/>
+
+</odoo>

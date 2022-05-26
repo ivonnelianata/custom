@@ -1,0 +1,26 @@
+<odoo noupdate="1"> <!--no update 0 hanya utk install diawal, kalo udh tercreate ubah ke 1-->
+
+        <!-- Record ini hanya di cretae saat install -->
+        <record id="sequence_idea_idea_seq" model="ir.sequence">
+            <field name="name">Idea Sequence</field>
+            <field name="code">idea.idea</field>
+            <field name="prefix">IDEA/%(range_year)s/</field>
+            <field eval="3" name="padding"/> <!--sequnce set, eval utk number selain string-->
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/> <!--penomoran ini ebrlalku utk smeua company-->
+            <field eval="True" name="use_date_range"/> <!--menggunakannrange date tahun, kalo memang ngga pake ya di false-->
+        </record>
+
+         <record id="sequence_idea_voting_seq" model="ir.sequence">
+            <field name="name">Idea Voting</field>
+            <field name="code">idea.voting</field>
+            <field name="prefix">VOTE/</field>
+            <field eval="3" name="padding"/> <!--sequnce set, eval utk number selain string-->
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/> <!--penomoran ini ebrlalku utk smeua company-->
+            <!--<field eval="True" name="use_date_range"/>--> <!--menggunakannrange date tahun, kalo memang ngga pake ya di false-->
+        </record>
+
+</odoo>
