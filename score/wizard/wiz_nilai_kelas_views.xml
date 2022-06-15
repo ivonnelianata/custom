@@ -7,10 +7,10 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="kelas_id"/>
-                            <field name="mk_id"/>
-                            <field name="semester"/>
-                            <field name="tahun"/>
+                            <field name="name"/>
+                            <field name="number"/>
+                            <field name="customer_id"/>
+                            <field name="tanggal"/>
                         </group>
                     </group>
                     <notebook>

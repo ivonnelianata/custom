@@ -1,0 +1,17 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_kategori_user","Access Kategori for User Sales","model_apo_kategori","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_kategori_admin","Access Kategori for User admin","model_apo_kategori","sales_team.group_sale_manager",1,1,1,1
+"access_obat_user","Access Obat for User Sales","model_apo_obat","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_obat_admin","Access Obat for User admin","model_apo_obat","sales_team.group_sale_manager",1,1,1,1
+"access_cus_user","Access Cus for User Sales","model_apo_cus","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_cus_admin","Access Cus for User admin","model_apo_cus","sales_team.group_sale_manager",1,1,1,1
+"access_transaksi_user","Access Transaksi for User Sales","model_apo_transaksi","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_transaksi_admin","Access Transaksi for User admin","model_apo_transaksi","sales_team.group_sale_manager",1,1,1,1
+"access_detail_user","Access Detail for User Sales","model_apo_detail","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_detail_admin","Access Detail for User admin","model_apo_detail","sales_team.group_sale_manager",1,1,1,1
+"access_wiz_apo_transaksi_user","Access Wiz for User MK","model_wiz_apo_transaksi","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_wiz_apo_transaksi_admin","Access Wiz for Admin","model_wiz_apo_transaksi","sales_team.group_sale_manager",1,1,1,1
+"access_wiz_apo_transaksi_lines_user","Access Wiz for User MK","model_wiz_apo_transaksi_lines","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_wiz_apo_transaksi_lines_admin","Access Wiz for Admin","model_wiz_apo_transaksi_lines","sales_team.group_sale_manager",1,1,1,1
+"access_supplier2_user","Access Supplier2 for User Sales","model_apo_supplier2","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_supplier2_admin","Access Supplier2 for User admin","model_apo_supplier2","sales_team.group_sale_manager",1,1,1,1

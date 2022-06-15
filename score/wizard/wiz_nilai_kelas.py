@@ -26,8 +26,7 @@ class wizkelas(models.TransientModel): #inherit dr Model
             rec.ref_kelas_lines_id.grade = rec.grade
 
     @api.model
-    def default_get(self,
-                    fields_list):  # ini adalah common method, semacam constructor, akan dijalankan saat create object. Ini akan meng-overwrite default_get dari parent
+    def default_get(self,fields_list):  # ini adalah common method, semacam constructor, akan dijalankan saat create object. Ini akan meng-overwrite default_get dari parent
         res = super(wizkelas, self).default_get(fields_list)
         # res  merupakan dictionary beserta value yang akan diisi, yang sudah diproses di super class (untuk create record baru)
         res['kelas_id'] = self.env.context['active_id']

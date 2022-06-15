@@ -1,0 +1,63 @@
+<odoo noupdate="1"> <!--no update 0 hanya utk install diawal, kalo udh tercreate ubah ke 1-->
+
+        <!-- Record ini hanya di cretae saat install -->
+        <record id="sequence_apo_kategori_seq" model="ir.sequence">
+            <field name="name">Apo Kategori Sequence</field>
+            <field name="code">apo.kategori</field>
+            <field name="prefix">Kategori//</field>
+            <field eval="3" name="padding"/> <!--sequnce set, eval utk number selain string-->
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/> <!--penomoran ini ebrlalku utk smeua company-->
+            <!--<field eval="True" name="use_date_range"/>--> <!--menggunakannrange date tahun, kalo memang ngga pake ya di false-->
+
+        </record>
+
+        <record id="sequence_apo_obat_seq" model="ir.sequence">
+            <field name="name">Apo Obat Sequence</field>
+            <field name="code">apo.obat</field>
+            <field name="prefix">Obat/</field>
+            <field eval="3" name="padding"/> <!--sequnce set, eval utk number selain string-->
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/> <!--penomoran ini ebrlalku utk smeua company-->
+            <!--<field eval="True" name="use_date_range"/>--> <!--menggunakannrange date tahun, kalo memang ngga pake ya di false-->
+
+        </record>
+
+         <record id="sequence_apo_cus_seq" model="ir.sequence">
+            <field name="name">Apo Cus Sequence</field>
+            <field name="code">apo.cus</field>
+            <field name="prefix">Cus/</field>
+            <field eval="3" name="padding"/> <!--sequnce set, eval utk number selain string-->
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/> <!--penomoran ini ebrlalku utk smeua company-->
+            <!--<field eval="True" name="use_date_range"/>--> <!--menggunakannrange date tahun, kalo memang ngga pake ya di false-->
+
+        </record>
+
+        <record id="sequence_apo_transaksi_seq" model="ir.sequence">
+            <field name="name">Apo Transaksi Sequence</field>
+            <field name="code">apo.transaksi</field>
+            <field name="prefix">TF/</field>
+            <field eval="3" name="padding"/> <!--sequnce set, eval utk number selain string-->
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/> <!--penomoran ini ebrlalku utk smeua company-->
+            <!--<field eval="True" name="use_date_range"/>--> <!--menggunakannrange date tahun, kalo memang ngga pake ya di false-->
+
+        </record>
+
+        <record id="sequence_apo_supplier2_seq" model="ir.sequence">
+            <field name="name">Apo Supplier2 Sequence</field>
+            <field name="code">apo.supplier2</field>
+            <field name="prefix">SUP/</field>
+            <field eval="3" name="padding"/> <!--sequnce set, eval utk number selain string-->
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/> <!--penomoran ini ebrlalku utk smeua company-->
+            <!--<field eval="True" name="use_date_range"/>--> <!--menggunakannrange date tahun, kalo memang ngga pake ya di false-->
+
+        </record>
+</odoo>
